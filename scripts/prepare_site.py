@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import html
 import re
 import shutil
 import subprocess
@@ -85,6 +86,17 @@ def site_path_for(source: Path) -> str:
     return relative.as_posix()
 
 
+def site_route_for(source: Path) -> str:
+    relative = source.relative_to(ROOT)
+    if source.name == "README.md":
+        relative = relative.with_name("index.md")
+    if relative.name == "index.md":
+        route = relative.parent.as_posix()
+    else:
+        route = relative.with_suffix("").as_posix()
+    return f"{route.rstrip('/')}/" if route not in {"", "."} else "./"
+
+
 def last_commit_for(path: Path) -> tuple[str, str]:
     raw = run_git("log", "-1", "--format=%cs%x1f%s", "--", path.relative_to(ROOT).as_posix())
     if "\x1f" not in raw:
@@ -138,6 +150,22 @@ def recent_documents(limit: int = 8, prefix: str | None = None) -> list[Path]:
     return candidates[:limit]
 
 
+def all_documents() -> list[Path]:
+    paths: list[Path] = []
+    for root_name in ("시황", "산업-테마", "종목분석"):
+        root = ROOT / root_name
+        if root.exists():
+            paths.extend(path for path in root.rglob("*.md") if is_analysis_document(path))
+
+    dated: list[tuple[str, str, Path]] = []
+    for path in paths:
+        date, _message = last_commit_for(path)
+        dated.append((date, path.relative_to(ROOT).as_posix(), path))
+
+    dated.sort(key=lambda item: (item[0], item[1]), reverse=True)
+    return [path for _date, _name, path in dated]
+
+
 def card_list(paths: list[Path], empty_text: str) -> str:
     if not paths:
         return empty_text
@@ -159,6 +187,42 @@ def card_list(paths: list[Path], empty_text: str) -> str:
             ]
         )
     rows.extend(["", "</div>"])
+    return "\n".join(rows)
+
+
+def reading_card_list(paths: list[Path]) -> str:
+    if not paths:
+        return '<p class="mm-reading-empty">분석 문서가 없습니다.</p>'
+
+    rows = ['<div class="mm-reading-grid" data-mm-reading-list>']
+    for path in paths:
+        date, message = last_commit_for(path)
+        title = html.escape(title_for(path))
+        relative = path.relative_to(ROOT)
+        category = html.escape(relative.parts[0])
+        route = html.escape(site_route_for(path), quote=True)
+        meta = html.escape(" · ".join(part for part in (date, message) if part) or "Market Memo")
+
+        rows.extend(
+            [
+                f'  <article class="mm-reading-card" data-mm-doc-path="{route}" data-mm-state="unread">',
+                '    <div class="mm-reading-card__top">',
+                '      <span class="mm-reading-card-status" data-mm-card-status>안 읽음</span>',
+                '      <span class="mm-reading-card-favorite" data-mm-card-favorite aria-hidden="true"></span>',
+                "    </div>",
+                f"    <h3>{title}</h3>",
+                f'    <p class="mm-reading-card-meta">{category} · {meta}</p>',
+                f'    <a class="mm-reading-card-link" href="{route}">문서 열기 →</a>',
+                "  </article>",
+            ]
+        )
+
+    rows.extend(
+        [
+            '  <p class="mm-reading-empty" data-mm-reading-empty hidden>이 조건에 해당하는 문서가 없습니다.</p>',
+            "</div>",
+        ]
+    )
     return "\n".join(rows)
 
 
@@ -185,6 +249,7 @@ def build_homepage() -> None:
             recent_documents(limit=4, prefix="시황/주요일정"),
             "등록된 주요 일정 문서가 없습니다.",
         ),
+        "{{READING_DOCS}}": reading_card_list(all_documents()),
     }
     for key, value in replacements.items():
         template = template.replace(key, value)
