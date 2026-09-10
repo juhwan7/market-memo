@@ -1,9 +1,10 @@
-version: 1
+version: 2
 
 targets:
   - id: musinsa-ipo
     enabled: true
     type: ipo
+    watch_mode: deterministic_github_action
     company: 무신사
     market: KOSPI
     document: 종목분석/비상장기업/무신사-IPO.md
@@ -14,3 +15,91 @@ targets:
       official_only: true
       create_pr_on_change: true
       direct_main_update: false
+
+  - id: trump-dividend-policy
+    enabled: true
+    type: policy
+    watch_mode: ai_state_watch
+    topic: 트럼프 5,000달러 Trump Dividend
+    document: 산업-테마/미국정책/트럼프-5000달러-배당-공약.md
+    state_file: 자동감시/상태/트럼프-5000달러-배당.json
+    history_dir: 자동감시/이력/트럼프-5000달러-배당
+    sources:
+      primary:
+        - 백악관
+        - Congress.gov
+        - 미국 재무부
+      secondary:
+        - Reuters
+    meaningful_changes:
+      - 구체적인 재원 발표
+      - 법안 발의 및 법안번호 공개
+      - 지급 대상과 소득 제한 확정
+      - 지급 방식과 지급 시점 발표
+      - 하원 또는 상원 의결
+      - 대통령 서명 및 법률 시행
+    policy:
+      preserve_previous_version: true
+      write_what_changed: true
+      official_source_required_for_stage_upgrade: true
+      no_change_no_commit: true
+
+  - id: tesla-cybercab
+    enabled: true
+    type: company_event
+    watch_mode: ai_state_watch
+    topic: Tesla Cybercab Robotaxi
+    document: 종목분석/미국주식/TSLA-테슬라.md
+    state_file: 자동감시/상태/테슬라-cybercab.json
+    history_dir: 자동감시/이력/테슬라-cybercab
+    sources:
+      primary:
+        - Tesla Investor Relations
+        - Tesla Robotaxi 공식 페이지
+        - NHTSA
+        - 미국 주·도시 규제기관
+      secondary:
+        - Reuters
+    meaningful_changes:
+      - NHTSA 조사 결과 또는 규제 상태 변화
+      - Cybercab 운행 도시 확대
+      - 등록·운행 차량 수의 의미 있는 증가
+      - 생산량 또는 생산능력 공개
+      - 운임·가동률·Robotaxi 매출 공개
+      - 개인 판매 가격·일정 확정
+      - 중대한 사고 또는 서비스 중단
+    policy:
+      preserve_previous_version: true
+      write_what_changed: true
+      official_source_required_for_stage_upgrade: true
+      no_change_no_commit: true
+
+  - id: china-trump-kim-mediation
+    enabled: true
+    type: geopolitics
+    watch_mode: ai_state_watch
+    topic: 중국의 Trump-Kim Jong Un 회동 중재 가능성
+    document: 시황/글로벌/2026-09-중국-트럼프-김정은-중재-가능성.md
+    state_file: 자동감시/상태/중국-트럼프-김정은-중재.json
+    history_dir: 자동감시/이력/중국-트럼프-김정은-중재
+    sources:
+      primary:
+        - 중국 외교부
+        - 미국 백악관·국무부
+        - 북한 공식매체·공식 발표
+        - 대한민국 외교부
+      secondary:
+        - Reuters
+        - South China Morning Post
+    meaningful_changes:
+      - 중국 정부의 공식 중재 언급
+      - 북한의 회담 수락 또는 거부 반응
+      - 북미 실무접촉 공식 확인
+      - Trump-Xi 정상회담에서 북한 의제 공식화
+      - Trump-Kim 회담 날짜·장소 확정
+      - 제재·핵·미사일 관련 합의 또는 결렬
+    policy:
+      preserve_previous_version: true
+      write_what_changed: true
+      official_source_required_for_stage_upgrade: true
+      no_change_no_commit: true
