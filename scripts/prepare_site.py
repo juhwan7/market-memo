@@ -61,11 +61,42 @@ def rewrite_readme_links(text: str) -> str:
     return README_LINK_RE.sub(lambda m: f"{m.group(1)}{m.group(2)}index.md{m.group(3)}", text)
 
 
+def collapse_top_level_section(text: str, heading: str, summary: str) -> str:
+    """Legacy long-form sections are preserved but collapsed on the website."""
+    pattern = re.compile(rf"(?m)^# {re.escape(heading)}\s*$")
+    match = pattern.search(text)
+    if not match:
+        return text
+
+    next_heading = re.compile(r"(?m)^# [^#\n].*$").search(text, match.end())
+    end = next_heading.start() if next_heading else len(text)
+    block = text[match.start():end].strip("\n")
+    indented = "\n".join(f"    {line}" if line else "" for line in block.splitlines())
+    replacement = f'??? info "{summary}"\n{indented}\n\n'
+    return text[:match.start()] + replacement + text[end:]
+
+
+def compact_legacy_markdown(text: str) -> str:
+    # 새 압축형 문서는 해당 제목이 없으므로 그대로 유지된다.
+    # 기존 장문의 상세 설명은 원본을 삭제하지 않고 웹에서만 접어 첫 화면을 짧게 만든다.
+    sections = (
+        ("5분 이해", "상세 설명 펼쳐보기"),
+        ("발표 직후 / 장중 체크 순서", "장중 체크 순서 펼쳐보기"),
+        ("깊게 보기", "추가 근거 펼쳐보기"),
+    )
+    for heading, summary in sections:
+        text = collapse_top_level_section(text, heading, summary)
+    return text
+
+
 def copy_markdown(source: Path) -> None:
     destination = destination_for(source)
     destination.parent.mkdir(parents=True, exist_ok=True)
     text = source.read_text(encoding="utf-8")
-    destination.write_text(rewrite_readme_links(text), encoding="utf-8")
+    text = rewrite_readme_links(text)
+    if is_analysis_document(source):
+        text = compact_legacy_markdown(text)
+    destination.write_text(text, encoding="utf-8")
 
 
 def title_for(path: Path) -> str:
@@ -136,7 +167,6 @@ def recent_documents(limit: int = 8, prefix: str | None = None) -> list[Path]:
     if result:
         return result
 
-    # git 정보가 없는 로컬 복사본에서도 최소한 동작하도록 fallback.
     candidates: list[Path] = []
     for root_name in ("시황", "산업-테마", "종목분석"):
         root = ROOT / root_name
