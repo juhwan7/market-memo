@@ -45,6 +45,36 @@ targets:
       official_source_required_for_stage_upgrade: true
       no_change_no_commit: true
 
+  - id: tsmc-ai-demand
+    enabled: true
+    type: company_event
+    watch_mode: ai_state_watch
+    topic: TSMC AI 반도체 수요·월매출·생산능력
+    document: 종목분석/해외기업/TSMC.md
+    state_file: 자동감시/상태/tsmc-ai-demand.json
+    history_dir: 자동감시/이력/tsmc-ai-demand
+    sources:
+      primary:
+        - TSMC Monthly Revenue
+        - TSMC Investor Relations
+        - TSMC Press Center
+      secondary:
+        - Reuters
+        - SEMICON Taiwan
+    meaningful_changes:
+      - 월매출 발표와 성장률의 의미 있는 변화
+      - AI accelerator 수요 전망 상향 또는 하향
+      - 연간 CAPEX 가이던스 변경
+      - 2nm·3nm 생산능력 또는 수율 관련 핵심 발표
+      - CoWoS·첨단패키징 capacity 변화
+      - 주요 고객의 장기 capacity 계약 또는 주문 둔화
+      - 공급병목 완화 또는 공급과잉 신호
+    policy:
+      preserve_previous_version: true
+      write_what_changed: true
+      official_source_required_for_stage_upgrade: true
+      no_change_no_commit: true
+
   - id: trump-dividend-policy
     enabled: true
     type: policy
