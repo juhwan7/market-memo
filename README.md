@@ -20,7 +20,7 @@
 
 ## 최근 핵심 자료
 
-- [`OpenAI — Astra 플랜 접근성·사용한도`](종목분석/비상장기업/OpenAI.md) — GPT-6 Pro의 플랜별 접근 범위와 Chat 사용한도 공식 공개
+- [`OpenAI — Astra rollout·사용량 관리`](종목분석/비상장기업/OpenAI.md) — 플랜별 한도에 이어 초기 rollout 대상 추가 사용량 reset 공식 운영 확인
 - [`9월 14일 시간외단일가 폐지와 KRX 애프터마켓`](시황/한국증시/2026-09-14-시간외단일가-폐지-애프터마켓.md)
 - [`TSMC — 8월 매출 급증과 AI 공급병목`](종목분석/해외기업/TSMC.md)
 - [`Tesla Cybercab / Robotaxi`](종목분석/미국주식/TSLA-테슬라.md)
