@@ -1,0 +1,16 @@
+version: 1
+
+targets:
+  - id: musinsa-ipo
+    enabled: true
+    type: ipo
+    company: 무신사
+    market: KOSPI
+    document: 종목분석/비상장기업/무신사-IPO.md
+    state_file: 자동감시/상태/무신사-ipo.json
+    sources:
+      kind_new_listing: https://kind.krx.co.kr/listinvstg/listingcompany.do?method=searchListingTypeMain
+    policy:
+      official_only: true
+      create_pr_on_change: true
+      direct_main_update: false
