@@ -1,0 +1,18 @@
+{
+  "id": "openai-astra-demand",
+  "topic": "OpenAI GPT-6 Astra 수요·컴퓨트 상태",
+  "status": "demand_surge_monitoring",
+  "status_label": "Astra 수요 폭증·신규 Pro 구독 일시중단 가능성 검토",
+  "status_changed_at": "2026-09-09",
+  "last_verified_at": "2026-09-10",
+  "document": "종목분석/비상장기업/OpenAI.md",
+  "latest_history_file": null,
+  "next_checks": [
+    "신규 Pro 구독 실제 중단 여부",
+    "중단 시 기간·지역·대상 플랜",
+    "Astra usage limit 또는 가격 정책 변경",
+    "Astra 전면 rollout 및 capacity 정상화",
+    "OpenAI 신규 compute·data center·custom chip CAPEX",
+    "Samsung·SK·Broadcom·TSMC 등 공급망 추가 계약"
+  ]
+}
