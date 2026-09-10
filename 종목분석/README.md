@@ -7,7 +7,7 @@
 | 시장/상태 | 종목명 | 코드/티커 | 주요 주제 | 최근 업데이트 | 한줄 요약 |
 |---|---|---|---|---|---|
 | 대만 | TSMC | 2330 / TSM | AI 반도체·2nm·CoWoS | 2026-09-10 | 8월 매출 +53.3%, AI 실수요와 공급병목 추적 |
-| 비상장 | OpenAI | - | GPT-6 Astra·GPT-6 Pro·컴퓨트 | 2026-09-10 | Astra 기반 GPT-6 Pro의 플랜별 접근성과 Chat 사용한도가 공식 공개됨 |
+| 비상장 | OpenAI | - | GPT-6 Astra·GPT-6 Pro·컴퓨트 | 2026-09-10 | 단계적 rollout 중 플랜별 한도와 추가 사용량 reset 공식 운영 |
 | 미국 | Tesla | TSLA | Cybercab·Robotaxi | 2026-09-10 | 제한 운행과 NHTSA 규제 검증 단계 |
 | 일본 | 소프트뱅크그룹 | 9984 | Arm·OpenAI·AI 인프라 | 2026-09-10 | NAV·LTV·AI 투자 구조 추적 |
 | 비상장·IPO | 무신사 | - | 코스피 IPO | 2026-09-10 | 상장예비심사 청구 단계 |
@@ -15,7 +15,7 @@
 ## 현재 기준 문서
 
 - [TSMC — AI 반도체 공급병목](해외기업/TSMC.md)
-- [OpenAI — Astra 수요·플랜 접근성·컴퓨트](비상장기업/OpenAI.md)
+- [OpenAI — Astra 수요·접근성·컴퓨트](비상장기업/OpenAI.md)
 - [Tesla Cybercab / Robotaxi](미국주식/TSLA-테슬라.md)
 
 새 종목 문서는 [`종목분석-템플릿.md`](종목분석-템플릿.md)와 [`문서 작성 가이드`](../자료정책/문서-작성-가이드.md)를 따릅니다.
