@@ -1,0 +1,18 @@
+{
+  "id": "china-trump-kim-mediation",
+  "topic": "중국의 Trump-Kim Jong Un 회동 중재 가능성",
+  "status": "media_report_mediation_willingness",
+  "status_label": "복수 소식통의 중재 의향 보도·중국 정부 공식 중재 발표 없음",
+  "status_changed_at": "2026-09-10",
+  "last_verified_at": "2026-09-10",
+  "document": "시황/글로벌/2026-09-중국-트럼프-김정은-중재-가능성.md",
+  "latest_history_file": null,
+  "next_watch": [
+    "중국 외교부의 구체적 중재 언급",
+    "북한의 회담 수락·거부 반응",
+    "북미 실무접촉 공식 확인",
+    "Trump-Xi 정상회담의 북한 의제",
+    "Trump-Kim 회담 날짜·장소",
+    "제재·핵·미사일 합의 또는 결렬"
+  ]
+}
