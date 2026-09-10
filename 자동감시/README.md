@@ -50,6 +50,31 @@ KRX KIND 신규상장기업현황에서 무신사 확인
 
 GitHub Actions가 평일 한국시간 기준 대략 오전 9시 30분과 오후 5시 30분에 확인합니다. `workflow_dispatch`를 통해 GitHub Actions 화면에서 수동 실행도 할 수 있습니다.
 
+## GitHub Actions 권한 설정
+
+자동 PR을 실제로 생성하려면 저장소의 GitHub Actions 권한이 허용돼 있어야 합니다.
+
+GitHub 저장소에서 다음을 확인합니다.
+
+```text
+Settings
+→ Actions
+→ General
+→ Workflow permissions
+```
+
+`GITHUB_TOKEN`이 쓰기 작업과 Pull Request 생성을 할 수 있도록 설정해야 합니다. 개인 저장소는 `Allow GitHub Actions to create and approve pull requests` 옵션이 기본적으로 꺼져 있을 수 있습니다.
+
+워크플로 자체에는 다음 권한만 요청하도록 제한해 두었습니다.
+
+```yaml
+permissions:
+  contents: write
+  pull-requests: write
+```
+
+필요한 범위보다 넓은 `write-all` 권한은 사용하지 않습니다.
+
 ## 감시 대상 추가
 
 새 대상은 루트 [`감시대상.yaml`](../감시대상.yaml)에 추가합니다.
