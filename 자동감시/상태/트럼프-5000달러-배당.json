@@ -1,0 +1,18 @@
+{
+  "id": "trump-dividend-policy",
+  "topic": "트럼프 5,000달러 Trump Dividend",
+  "status": "campaign_promise",
+  "status_label": "중간선거 승리를 조건으로 한 선거 공약",
+  "status_changed_at": "2026-09-09",
+  "last_verified_at": "2026-09-10",
+  "document": "산업-테마/미국정책/트럼프-5000달러-배당-공약.md",
+  "latest_history_file": null,
+  "next_watch": [
+    "구체적인 재원 발표",
+    "법안 발의 및 법안번호",
+    "지급 대상·소득 제한",
+    "지급 방식·시점",
+    "의회 의결",
+    "대통령 서명"
+  ]
+}
