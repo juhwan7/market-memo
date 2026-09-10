@@ -74,9 +74,11 @@ markdown_extensions:
 
 extra_css:
   - assets/stylesheets/extra.css
+  - assets/stylesheets/reading.css
 
 extra_javascript:
   - assets/javascripts/extra.js
+  - assets/javascripts/reading.js
 
 extra:
   generator: false

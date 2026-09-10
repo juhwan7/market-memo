@@ -26,6 +26,30 @@ hide:
 
 </div>
 
+## 읽기 관리
+
+분석 문서를 `안 읽음 → 읽는 중 → 읽음`으로 관리하고, 다시 볼 자료는 즐겨찾기에 남길 수 있습니다.
+
+<div class="mm-reading-dashboard" data-mm-reading-dashboard>
+  <div class="mm-reading-summary">
+    <div class="mm-reading-summary-item"><strong data-mm-count="all">{{DOC_COUNT}}</strong><span>전체</span></div>
+    <div class="mm-reading-summary-item"><strong data-mm-count="unread">{{DOC_COUNT}}</strong><span>안 읽음</span></div>
+    <div class="mm-reading-summary-item"><strong data-mm-count="reading">0</strong><span>읽는 중</span></div>
+    <div class="mm-reading-summary-item"><strong data-mm-count="read">0</strong><span>읽음</span></div>
+    <div class="mm-reading-summary-item"><strong data-mm-count="favorite">0</strong><span>즐겨찾기</span></div>
+  </div>
+  <div class="mm-reading-filter-row" role="group" aria-label="읽기 상태 필터">
+    <button type="button" class="mm-reading-filter is-active" data-mm-filter="all" aria-pressed="true">전체 <span data-mm-count="all">{{DOC_COUNT}}</span></button>
+    <button type="button" class="mm-reading-filter" data-mm-filter="unread" aria-pressed="false">안 읽음 <span data-mm-count="unread">{{DOC_COUNT}}</span></button>
+    <button type="button" class="mm-reading-filter" data-mm-filter="reading" aria-pressed="false">읽는 중 <span data-mm-count="reading">0</span></button>
+    <button type="button" class="mm-reading-filter" data-mm-filter="read" aria-pressed="false">읽음 <span data-mm-count="read">0</span></button>
+    <button type="button" class="mm-reading-filter" data-mm-filter="favorite" aria-pressed="false">즐겨찾기 <span data-mm-count="favorite">0</span></button>
+  </div>
+  <p class="mm-reading-dashboard-note">읽기 상태와 즐겨찾기는 이 브라우저의 localStorage에만 저장됩니다. GitHub 저장소나 다른 방문자의 상태에는 영향을 주지 않습니다.</p>
+</div>
+
+{{READING_DOCS}}
+
 ## 어디부터 볼까
 
 <div class="grid cards mm-section-grid" markdown>
