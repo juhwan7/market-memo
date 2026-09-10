@@ -1,0 +1,86 @@
+site_name: Market Memo
+site_description: 한국·미국 증시, 산업·테마, 종목을 연결해서 보는 개인 시장 지식베이스
+site_url: https://juhwan7.github.io/market-memo/
+repo_url: https://github.com/juhwan7/market-memo
+repo_name: juhwan7/market-memo
+edit_uri: edit/main/
+docs_dir: .site-docs
+site_dir: .site-output
+copyright: 개인 학습 및 시장 분석용 · 투자 권유가 아닙니다.
+
+# nav를 수동으로 고정하지 않습니다.
+# scripts/prepare_site.py가 기존 Markdown 구조를 웹용 문서 트리로 만들고,
+# MkDocs가 새 문서를 자동 발견하도록 합니다.
+not_in_nav: |
+  **/*템플릿.md
+  자료정책/**
+
+theme:
+  name: material
+  language: ko
+  font: false
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로 전환
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로 전환
+
+plugins:
+  - search:
+      lang:
+        - ko
+        - en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/extra.js
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/juhwan7/market-memo
+      name: GitHub 저장소
