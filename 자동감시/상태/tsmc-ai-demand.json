@@ -1,0 +1,23 @@
+{
+  "id": "tsmc-ai-demand",
+  "document": "종목분석/해외기업/TSMC.md",
+  "status": "8월 매출 급증·AI 공급병목·CAPEX 확대",
+  "status_label": "확정 실적 + 구조적 수요 확인",
+  "status_changed_at": "2026-09-10",
+  "last_verified_at": "2026-09-10",
+  "latest_history_file": null,
+  "key_facts": {
+    "august_revenue_ntd_million": 514806,
+    "august_yoy_percent": 53.3,
+    "ytd_revenue_ntd_million": 3386870,
+    "ytd_yoy_percent": 39.3,
+    "capex_2026_usd_billion": "60-64"
+  },
+  "next_checks": [
+    "2026-10-08 9월 월매출",
+    "2026년 3분기 실적과 AI 수요 가이던스",
+    "2nm·CoWoS 생산능력 확대",
+    "2026 CAPEX 추가 변경",
+    "Hyperscaler 2027 AI CAPEX 전망"
+  ]
+}
