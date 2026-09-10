@@ -1,0 +1,5 @@
+.site-docs/
+.site-output/
+.venv/
+__pycache__/
+*.pyc
