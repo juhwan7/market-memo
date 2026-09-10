@@ -14,5 +14,5 @@ IPO는 `검토 → 주관사 선정 → 예심 청구 → 예심 승인 → 증�
 
 | 기업 | 현재 단계/상태 | 주요 주제 | 최근 업데이트 | 문서 |
 |---|---|---|---|---|
-| OpenAI | 비상장 · Astra 플랜 접근성/사용량 관리 | GPT-6 Astra·GPT-6 Pro·Stargate·AI 인프라 | 2026-09-10 | [OpenAI](OpenAI.md) |
+| OpenAI | 비상장 · Astra rollout/사용량 관리 | GPT-6 Astra·GPT-6 Pro·추가 reset·AI 인프라 | 2026-09-10 | [OpenAI](OpenAI.md) |
 | 무신사 | 상장예비심사 청구 | 코스피 IPO | 2026-09-10 | [무신사 IPO](무신사-IPO.md) |
