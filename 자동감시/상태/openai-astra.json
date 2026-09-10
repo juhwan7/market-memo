@@ -1,16 +1,16 @@
 {
   "id": "openai-astra-demand",
   "topic": "OpenAI GPT-6 Astra 수요·컴퓨트 상태",
-  "status": "plan_access_and_usage_limits_published",
-  "status_label": "Astra 기반 GPT-6 Pro 플랜별 접근성·Chat 사용한도 공식 공개",
-  "status_changed_at": "2026-09-10T19:33:47+09:00",
-  "last_verified_at": "2026-09-10T19:33:47+09:00",
+  "status": "rollout_usage_resets_active",
+  "status_label": "Astra 단계적 rollout·플랜별 한도·추가 사용량 reset 공식 운영",
+  "status_changed_at": "2026-09-10T20:51:00+09:00",
+  "last_verified_at": "2026-09-10T20:51:00+09:00",
   "document": "종목분석/비상장기업/OpenAI.md",
-  "latest_history_file": "자동감시/이력/openai-astra/2026-09-10-1933-이전-버전.md",
+  "latest_history_file": "자동감시/이력/openai-astra/2026-09-10-2051-이전-버전.md",
   "next_checks": [
     "신규 Pro 구독 실제 중단 또는 재개",
-    "Astra 사용한도·가격·크레딧 정책 추가 변경",
-    "Work·Codex 전면 rollout 또는 capacity 정상화",
+    "Astra 사용한도·가격·크레딧·reset 정책 추가 변경",
+    "전면 rollout 또는 capacity 정상화",
     "OpenAI 신규 compute·data center·custom chip CAPEX",
     "Samsung·SK·Broadcom·TSMC 등 공급망 추가 계약"
   ]
