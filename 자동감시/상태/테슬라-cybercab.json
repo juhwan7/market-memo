@@ -1,0 +1,19 @@
+{
+  "id": "tesla-cybercab",
+  "topic": "Tesla Cybercab Robotaxi",
+  "status": "limited_public_operation_regulatory_review",
+  "status_label": "생산 시작·오스틴 제한 공개 운행·NHTSA 규제 검증",
+  "status_changed_at": "2026-09-04",
+  "last_verified_at": "2026-09-10",
+  "document": "종목분석/미국주식/TSLA-테슬라.md",
+  "latest_history_file": null,
+  "next_watch": [
+    "NHTSA 조사 결과",
+    "운행 도시 확대",
+    "Cybercab 등록·운행대수 증가",
+    "생산량·생산능력 공개",
+    "운임·가동률·Robotaxi 매출",
+    "개인 판매 가격·일정",
+    "중대한 사고·서비스 중단"
+  ]
+}
