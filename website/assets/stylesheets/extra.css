@@ -12,8 +12,19 @@
   --mm-shadow: 0 16px 42px rgba(0, 0, 0, 0.22);
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 .md-grid {
   max-width: 1480px;
+}
+
+.md-content,
+.md-content__inner,
+.md-typeset {
+  min-width: 0;
 }
 
 .md-content__inner {
@@ -49,6 +60,17 @@
 .md-typeset p,
 .md-typeset li {
   word-break: keep-all;
+}
+
+.md-typeset a,
+.md-typeset code {
+  overflow-wrap: anywhere;
+}
+
+.md-typeset img,
+.md-typeset video,
+.md-typeset iframe {
+  max-width: 100%;
 }
 
 .md-typeset blockquote {
@@ -226,22 +248,229 @@
   }
 }
 
+/* Mobile reading layout */
 @media screen and (max-width: 48em) {
+  .md-main__inner {
+    margin-top: 0.35rem;
+  }
+
+  .md-content {
+    min-width: 0;
+    overflow-x: clip;
+  }
+
+  .md-content__inner {
+    max-width: none;
+    margin: 0;
+    padding: 0.55rem 0.8rem 1.5rem;
+  }
+
+  .md-typeset {
+    font-size: 0.82rem;
+    line-height: 1.72;
+  }
+
+  .md-typeset p,
+  .md-typeset li {
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .md-typeset h1 {
+    margin-top: 0.3rem;
+    margin-bottom: 0.85rem;
+    font-size: 1.72rem;
+    line-height: 1.2;
+    letter-spacing: -0.04em;
+    overflow-wrap: break-word;
+  }
+
+  .md-typeset h2 {
+    margin-top: 2rem;
+    padding-bottom: 0.35rem;
+    font-size: 1.22rem;
+    line-height: 1.35;
+  }
+
+  .md-typeset h3 {
+    margin-top: 1.55rem;
+    font-size: 1rem;
+    line-height: 1.42;
+  }
+
   .mm-hero {
-    padding: 1.6rem 1.25rem 1.45rem;
+    margin: 0 0 1rem;
+    padding: 1.35rem 1rem 1.1rem;
     border-radius: 0.85rem;
+  }
+
+  .mm-hero h1 {
+    margin-bottom: 0.65rem;
+    font-size: 2.05rem;
+    line-height: 1.05;
+  }
+
+  .mm-hero p {
+    margin-bottom: 0.75rem;
+    font-size: 0.84rem;
+    line-height: 1.62;
+  }
+
+  .mm-hero .md-button {
+    display: block;
+    width: 100%;
+    min-height: 44px;
+    margin: 0.5rem 0 0;
+    padding: 0.62rem 0.85rem;
+    text-align: center;
   }
 
   .mm-stat-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.55rem;
+    margin: 0.85rem 0 1.6rem;
+  }
+
+  .mm-stat {
+    min-width: 0;
+    padding: 0.78rem 0.8rem;
+    border-radius: 0.7rem;
+  }
+
+  .mm-stat strong {
+    font-size: 1.3rem;
+  }
+
+  .mm-stat span,
+  .mm-card-meta {
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .md-typeset .grid.cards > ul,
+  .mm-card-grid > ul,
+  .mm-section-grid > ul,
+  .mm-principle-grid > ul {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 0.65rem;
+  }
+
+  .md-typeset .grid.cards > ul > li {
+    min-width: 0;
+    padding: 0.85rem;
+    border-radius: 0.72rem;
+  }
+
+  .md-typeset blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.65rem 0.8rem;
+  }
+
+  .md-typeset .admonition,
+  .md-typeset details {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0.6rem;
+  }
+
+  /* Wide comparison tables stay readable by horizontal scrolling instead of being crushed. */
+  .md-typeset__table {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+
+  .md-typeset table:not([class]) {
+    width: 100%;
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  .md-typeset table:not([class]):has(tr > :nth-child(3)) {
+    min-width: 34rem;
+  }
+
+  .md-typeset table:not([class]):has(tr > :nth-child(5)) {
+    min-width: 46rem;
+  }
+
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .md-typeset pre,
+  .md-typeset .highlight,
+  .md-typeset .highlighttable {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .md-typeset code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .md-typeset pre code {
+    white-space: pre;
+  }
+
+  .status-badge,
+  .importance-badge {
+    max-width: 100%;
+    vertical-align: 0.02em;
+  }
+
+  .md-nav__link {
+    line-height: 1.45;
+  }
+
+  /* 16px prevents iOS Safari from zooming the page when search receives focus. */
+  .md-search__input {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 26em) {
+  .md-content__inner {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
   }
 
   .md-typeset {
-    font-size: 0.77rem;
-    line-height: 1.74;
+    font-size: 0.8rem;
   }
 
-  .md-typeset h2 {
-    margin-top: 2.25rem;
+  .mm-hero {
+    padding: 1.15rem 0.85rem 1rem;
+  }
+
+  .mm-hero h1 {
+    font-size: 1.85rem;
+  }
+
+  .mm-stat-grid {
+    gap: 0.45rem;
+  }
+
+  .mm-stat {
+    padding: 0.7rem;
+  }
+
+  .mm-stat strong {
+    font-size: 1.2rem;
+  }
+}
+
+@media (hover: none) {
+  .md-typeset .grid.cards > ul > li:hover {
+    transform: none;
+    box-shadow: none;
   }
 }
