@@ -1,0 +1,10 @@
+{
+  "id": "musinsa-ipo",
+  "company": "무신사",
+  "status": "preliminary_review",
+  "status_label": "상장예비심사 진행",
+  "status_changed_at": "2026-09-07",
+  "last_official_detection_at": "2026-09-10",
+  "stock_code": null,
+  "source": "https://kind.krx.co.kr/listinvstg/listinvstgcom.do?method=searchListInvstgCorpMain"
+}
