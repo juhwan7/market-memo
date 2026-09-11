@@ -20,10 +20,10 @@
 
 ## 최근 핵심 자료
 
+- [OpenAI — Astra rollout·사용량 관리·금융서비스 enterprise 확장](종목분석/비상장기업/OpenAI.md) — ChatGPT for Financial Services와 Morgan Stanley·Evercore 설계 협업 공식 확인
 - [젠슨 황 “AI의 다음 대형 시장은 사이버보안”](산업-테마/AI-사이버보안/젠슨황-AI-사이버보안-차세대-시장-발언.md) — 발언 원문, 공포 마케팅 논란, CrowdStrike·Cisco·Palantir 실제 협업과 투자 의미
 - [가스터빈 품귀와 2030 공급과잉 가능성](산업-테마/가스터빈/가스터빈-품귀와-2030-공급과잉-리스크.md) — 현재 공급 부족부터 증설, 2030년 수급 시나리오, 두산에너빌리티 의미까지 연결
 - [2026-09-10 미국증시 마감 — PPI·유가·금리 부담](시황/미국증시/2026-09-10-미국증시-마감.md)
-- [OpenAI — Astra rollout·사용량 관리](종목분석/비상장기업/OpenAI.md)
 - [9월 14일 시간외단일가 폐지와 KRX 애프터마켓](시황/한국증시/2026-09-14-시간외단일가-폐지-애프터마켓.md)
 - [TSMC — 8월 매출 급증과 AI 공급병목](종목분석/해외기업/TSMC.md)
 - [Tesla Cybercab / Robotaxi](종목분석/미국주식/TSLA-테슬라.md)
