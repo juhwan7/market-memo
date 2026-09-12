@@ -1,18 +1,20 @@
 {
   "id": "trump-dividend-policy",
   "topic": "트럼프 5,000달러 Trump Dividend",
-  "status": "campaign_promise",
-  "status_label": "중간선거 승리를 조건으로 한 선거 공약",
-  "status_changed_at": "2026-09-09",
-  "last_verified_at": "2026-09-10",
+  "status": "campaign_promise_funding_options_claimed",
+  "status_label": "선거 공약 유지 + 행정부 인사 재원 후보 주장·공식 재원/법안 미확정",
+  "status_changed_at": "2026-09-13T04:17:00+09:00",
+  "last_verified_at": "2026-09-13T04:17:00+09:00",
   "document": "산업-테마/미국정책/트럼프-5000달러-배당-공약.md",
-  "latest_history_file": null,
+  "latest_history_file": "자동감시/이력/트럼프-5000달러-배당/2026-09-13-0417-이전-버전.md",
   "next_watch": [
-    "구체적인 재원 발표",
+    "백악관·재무부의 공식 재원표·비용추계",
     "법안 발의 및 법안번호",
+    "Platinum Card 실제 정부 세입",
+    "정부 Intel 지분 현금화 계획",
     "지급 대상·소득 제한",
     "지급 방식·시점",
-    "의회 의결",
+    "하원 또는 상원 의결",
     "대통령 서명"
   ]
 }
