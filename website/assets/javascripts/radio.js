@@ -674,6 +674,7 @@
     }
 
     setPlayingUi(panel);
+    updateSeekUi(panel, requestedSeekPercent);
   }
 
   document.addEventListener("DOMContentLoaded", mount);
