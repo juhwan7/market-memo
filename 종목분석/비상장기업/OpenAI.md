@@ -1,74 +1,124 @@
 # OpenAI — GPT-6 Astra 수요·접근성·컴퓨트 상태
 
-- **마지막 검증:** 2026-09-12 12:20 KST
-- **이전 버전:** [2026-09-12 12:20 이전 버전](../../자동감시/이력/openai-astra/2026-09-12-1220-이전-버전.md)
-- **이전 상태:** [확정] Astra rollout 유지 + GPT-6 Pro 플랜별 Chat 사용한도 공식 확인 + 금융서비스 enterprise 확장 유지
-- **현재 상태:** **[확정] Astra rollout 유지 + GPT-6 Pro 사용한도 관리 + Pro $200 신규 가입·업그레이드 일시 중단 + 금융서비스 enterprise 확장**
-- **핵심:** OpenAI는 공식 Help Center에서 **2026-09-10부터 ChatGPT Pro $200(Pro 20X)의 신규 가입과 업그레이드를 일시 중단**했다고 명시했다. 기존 Pro $200 가입자는 계속 갱신할 수 있고 Pro $100 신규·기존 가입자는 영향을 받지 않는다. 이는 Astra의 전면 중단이 아니라 가장 높은 사용량 티어의 신규 유입을 제한한 **공식 capacity-control 조치**다.
+- **마지막 검증:** 2026-09-12 13:25 KST
+- **이전 버전:** [2026-09-12 13:25 이전 버전](../../자동감시/이력/openai-astra/2026-09-12-1325-이전-버전.md)
+- **이전 상태:** **[확정] Astra rollout 유지 + GPT-6 Pro 사용한도 관리 + Pro $200 신규 가입·업그레이드 일시 중단 + 금융서비스 enterprise 확장**
+- **현재 상태:** **[확정] 위 상태 유지 + 말레이시아 2개 AI 데이터센터의 전용 컴퓨트 용량을 다년 계약으로 확보**
+- **이번 핵심 변화:** 2026-09-08 Firmus와 OpenAI는 OpenAI가 말레이시아의 **Firmus AI Factory 2곳에서 전용 AI 컴퓨트 용량을 다년 계약**하는 전략적 파트너십을 발표했다. OpenAI는 Firmus의 **anchor customer(핵심 선도 고객)**가 되며, Firmus는 신규 시설에 NVIDIA Vera Rubin NVL72 시스템을 투입할 계획이라고 밝혔다.
+
+## 3줄 핵심
+
+1. **[확정]** OpenAI는 Astra 수요를 관리하기 위해 Pro $200 신규 가입·업그레이드를 계속 일시 중단하고 있다. 전면적인 capacity 정상화 발표는 아직 없다.
+2. **[확정]** Firmus·OpenAI 공동 발표로 OpenAI가 말레이시아의 신규 AI 데이터센터 2곳에서 **전용 컴퓨트 용량을 다년 계약**한 사실이 추가 확인됐다. 이는 단순한 수요 전망이 아니라 실제 인프라 계약이다.
+3. **[확인되지 않음]** OpenAI가 계약한 정확한 MW, 계약금액, 실제 가동 개시일, Astra 전용 비중은 공개되지 않았다. Firmus 전체 고객 계약용량 `900MW+`를 OpenAI 단독 계약량으로 보면 안 된다.
 
 ## 1분 핵심
 
 | 항목 | 현재 확인 내용 |
 |---|---|
 | Astra rollout | **[확정]** Plus·Pro·Business·Enterprise 및 API로 확대 중 |
-| GPT-6 Pro 접근성 | **[확정]** Chat에서는 Pro $100·Pro $200·Business·Enterprise에서 제공. Plus는 Work·Codex에서 Astra 사용 가능 |
 | GPT-6 Pro Chat 한도 | **[확정]** Pro $200 주 200회 / Pro $100 주 50회 / Business Standard 월 15회 / Business Premium 주 50회 |
-| Pro $200 신규 가입 | **[확정] 일시 중단.** Free·Go·Plus·Pro $100에서 Pro $200으로 신규 가입·업그레이드 불가 |
-| 기존 Pro $200 | **[확정]** 기존 구독은 유지·갱신 가능. 다만 취소·다운그레이드가 실제 적용되면 중단 기간에는 다시 Pro $200을 살 수 없음 |
-| Pro $100 | **[확정]** 신규·기존 가입 모두 영향 없음 |
-| Work·Codex Astra | **[확정]** 플랜별 포함 사용량과 크레딧 구조로 운영. OpenAI는 실제 사용량이 모델·작업에 따라 달라질 수 있다고 설명 |
-| 금융권 제품 | **[확정]** `ChatGPT for Financial Services`가 GPT-6 Astra reasoning을 사용하며 Morgan Stanley·Evercore와 design partnership으로 설계 |
-| capacity 정상화 | **[확인되지 않음]** 신규 Pro $200 유입 제한은 확인됐지만 전체 컴퓨트 공급 정상화 시점은 공개되지 않음 |
+| Pro $200 신규 가입 | **[확정] 일시 중단** — 신규 가입·상위 티어 업그레이드 불가 |
+| 기존 Pro $200 | **[확정]** 기존 구독 유지·갱신 가능 |
+| 금융권 제품 | **[확정]** `ChatGPT for Financial Services` 출시, GPT-6 Astra reasoning 사용 |
+| 신규 컴퓨트 계약 | **[확정]** Firmus와 다년 전략적 파트너십. 말레이시아 AI Factory 2곳에서 OpenAI 전용 AI 컴퓨트 용량 계약 |
+| 하드웨어 | **[Firmus 발표]** 말레이시아 신규 시설에 NVIDIA DSX AI Factory Platform 및 Vera Rubin NVL72 시스템 도입 계획 |
+| 정확한 OpenAI 계약용량 | **[확인되지 않음]** Firmus 전체 고객 포트폴리오는 900MW 초과지만 OpenAI 단독 MW는 비공개 |
+| 계약금액 | **[확인되지 않음]** 공식 발표와 Reuters 모두 금액을 공개하지 않음 |
+| capacity 정상화 | **[확인되지 않음]** 신규 capacity 확보는 진행 중이나 Astra 전체 공급 정상화 시점은 공개되지 않음 |
 
 ## 이번에 새로 확인된 내용
 
-**[확정]** OpenAI Help Center `About ChatGPT Pro tiers`에 따르면, **2026년 9월 10일부터 Pro $200(Pro 20X)의 신규 가입과 업그레이드가 일시 중단**됐다.
+### 1. OpenAI가 말레이시아에서 전용 AI 컴퓨트 용량을 계약했다
 
-공식 범위는 다음과 같다.
+**[확정]** Firmus는 2026년 9월 8일 공식 발표에서 **Firmus와 OpenAI가 다년 전략적 파트너십을 체결했으며, OpenAI가 말레이시아 Firmus AI Factory 2곳에서 dedicated AI compute capacity를 계약한다**고 밝혔다.
 
-- Free → Pro $200 신규 가입 불가
-- Go → Pro $200 업그레이드 불가
-- Plus → Pro $200 업그레이드 불가
-- Pro $100 → Pro $200 업그레이드 불가
-- 기존 Pro $200 → 계속 사용·갱신 가능
-- 신규·기존 Pro $100 → 영향 없음
-- Pro $200을 취소하거나 다운그레이드해 실제 구독이 끝나면, 중단이 해제될 때까지 다시 Pro $200 구매 불가
+OpenAI의 Sachin Katti VP of Compute Strategy도 같은 발표에서 Firmus와 협력해 글로벌 컴퓨트 용량을 확대하며, 말레이시아 신규 데이터센터가 전 세계 OpenAI 제품 수요를 지원할 것이라고 직접 말했다.
 
-OpenAI는 공식 FAQ에서 **재개 시점을 제시하지 않았다.**
+즉 이번 건은 `OpenAI가 동남아 데이터센터를 검토한다`는 수준이 아니라 **당사자 공동 발표가 나온 실제 컴퓨트 용량 계약**이다.
 
-### 이전과 달라진 점
+### 2. 다만 `OpenAI가 900MW를 계약했다`는 뜻은 아니다
 
-직전 문서에는 `신규 Pro 가입 중단은 확인되지 않음`으로 기록돼 있었다. 이번에는 OpenAI가 자체 Help Center에 중단 사실과 적용 범위를 명시했으므로 **확인되지 않음 → 확정**으로 상태가 바뀌었다.
+Firmus는 이번 파트너십을 포함해 **모든 고객을 합친 총 계약용량이 900MW를 넘었다**고 발표했다.
 
-다만 정확히는 `모든 Pro 가입 중단`이 아니다. **Pro $200 티어만 신규 가입·업그레이드가 일시 중단**됐고 Pro $100 및 기존 Pro $200 가입자는 계속 이용할 수 있다.
+따라서 다음처럼 구분해야 한다.
+
+```text
+Firmus 전체 고객 계약용량 > 900MW          [확정]
+OpenAI가 말레이시아 2개 시설 전용 용량 계약 [확정]
+OpenAI 단독 계약용량이 900MW               [아님 / 확인되지 않음]
+```
+
+OpenAI에 배정되는 정확한 MW와 계약금액은 공개되지 않았다.
+
+### 3. 신규 시설은 NVIDIA Vera Rubin 기반으로 계획돼 있다
+
+**[Firmus·NVIDIA 당사자 발표]** Firmus는 새 AI Factory에 NVIDIA DSX AI Factory Platform과 **Vera Rubin NVL72** 시스템을 도입할 계획이라고 밝혔다.
+
+이는 OpenAI의 신규 compute 확보가 차세대 NVIDIA 시스템을 사용하는 데이터센터 증설과 연결된다는 의미가 있다. 하지만 공개된 자료만으로 해당 GPU 물량 전체가 OpenAI 전용인지, 정확히 몇 대가 OpenAI 워크로드에 배정되는지는 알 수 없다.
+
+## 이전과 달라진 점
+
+### 이전 상태
+
+```text
+Astra rollout
++ 플랜별 사용량 제한
++ Pro $200 신규 가입 일시 중단
++ 금융서비스 enterprise 확장
++ 신규 compute 계약의 구체적 추가 확인은 문서에 없음
+```
+
+### 현재 상태
+
+```text
+기존 상태 유지
++ Firmus와 다년 계약
++ 말레이시아 AI Factory 2곳에서 OpenAI 전용 컴퓨트 용량 확보
++ 차세대 NVIDIA Vera Rubin 기반 capacity 증설 계획 확인
+```
+
+이번 변화는 `사용량을 제한하고 있다`는 수요 측 신호에 더해, **OpenAI가 실제 공급 측 capacity를 추가 확보하고 있다는 계약 근거**가 생겼다는 점이 중요하다.
 
 ## 왜 중요한가
 
-**[해석]** 이번 조치는 Astra 수요가 실제 서비스 운영 제약으로 이어지고 있음을 보여주는 강한 신호다. 단순히 기사에서 `수요가 많다`고 전한 것이 아니라, OpenAI가 가장 높은 사용량을 제공하는 Pro $200 티어의 신규 유입 자체를 막았다.
+Astra 수요를 볼 때 가장 강한 증거는 기사 제목이나 사용자 반응이 아니라 다음 순서다.
 
-다만 여기서 바로 `GPU가 절대적으로 부족하다`, `Astra 전체가 capacity shortage 상태다`, `특정 반도체 업체에 신규 대형 주문이 확정됐다`고 확대해석하면 안 된다. 공식적으로 확인된 것은 **특정 고사용량 요금제의 신규 유입 제한**이다.
+```text
+사용량 급증
+→ 요금제·쿼터 제한
+→ 신규 가입 제한
+→ 실제 데이터센터·컴퓨트 계약
+→ 시설 가동
+→ 사용가능 compute 증가
+→ 제한 완화 또는 capacity 정상화
+```
 
-OpenAI의 기존 Astra 사용량 구조도 그대로 중요하다. GPT-6 Pro는 플랜별 Chat 한도가 있고, Work·Codex에서도 플랜별 포함 사용량과 크레딧을 통해 계산자원을 관리한다. 이번 Pro $200 제한은 이러한 사용량 관리가 계정 단위에서 **신규 가입 제한 단계까지 강화된 것**으로 볼 수 있다.
+현재 OpenAI는 가운데 단계에 있다. Pro $200 신규 유입을 제한하는 동시에 말레이시아에서 추가 컴퓨트 용량을 계약했다.
 
-반도체·HBM·데이터센터 수혜는 Astra 수요가 신규 GPU·데이터센터 CAPEX나 Samsung·SK·Broadcom·TSMC 등의 추가 공급계약으로 공식 연결될 때 별도로 확정해야 한다.
+**[해석]** 이는 `수요가 강해서 공급확대가 필요하다`는 기존 논리를 강화한다. 다만 계약이 곧바로 사용 가능한 capacity를 의미하지는 않는다. Firmus는 전체 7개 AI Factory 중 2곳만 현재 운영 중이고 나머지 5곳은 개발 중이며 향후 24개월 내 서비스 개시를 목표로 한다고 밝혔다. 말레이시아 2개 시설의 정확한 가동 일정도 별도로 확인해야 한다.
 
-## 기존에 확인된 접근성·사용량 구조
+따라서 이번 계약을 `Astra 공급 부족 해결 완료`나 `capacity 정상화 확정`으로 해석하지 않는다.
+
+## 기존 접근성·사용량 관리 상태
 
 **[확정] OpenAI Help Center 기준:**
 
-- **Pro $200:** GPT-6 Pro 주 200회. GPT-5.6 Sol Pro는 별도 일 170회이며 두 모델 합산 일 200회 제한 존재
+- **Pro $200:** GPT-6 Pro 주 200회
 - **Pro $100:** GPT-6 Pro와 GPT-5.6 Sol Pro 합산 주 50회
 - **Business Standard:** 두 Pro 모델 합산 월 15회
 - **Business Premium:** 두 Pro 모델 합산 주 50회
 - **Plus:** Chat의 GPT-6 Pro는 포함되지 않지만 Work·Codex에서 Astra 사용 가능
 
-Work·Codex의 실제 소비량은 작업 길이·모델·설정에 따라 달라질 수 있어 OpenAI가 제시하는 메시지 수는 고정 보장치가 아니라 추정 범위로 봐야 한다.
+또한 2026년 9월 10일부터 **Pro $200 신규 가입·업그레이드가 일시 중단**됐다. 기존 Pro $200 구독자는 유지·갱신할 수 있고 Pro $100 가입은 영향을 받지 않는다.
+
+재개 시점은 공개되지 않았다.
 
 ## 금융서비스 enterprise 확장 상태
 
-**[확정]** 2026-09-10 OpenAI는 `ChatGPT for Financial Services`를 출시했다. 제품은 GPT-6 Astra reasoning을 사용하고 Morgan Stanley·Evercore가 design partner로 참여했다.
+**[확정]** 2026년 9월 10일 OpenAI는 `ChatGPT for Financial Services`를 출시했다. 제품은 GPT-6 Astra reasoning을 사용하며 Morgan Stanley·Evercore가 design partner로 참여했다.
 
-하지만 다음은 아직 공개되지 않았다.
+하지만 다음은 여전히 공개되지 않았다.
 
 - 실제 유료 고객 수
 - 좌석 수
@@ -78,45 +128,51 @@ Work·Codex의 실제 소비량은 작업 길이·모델·설정에 따라 달�
 
 따라서 `대형 금융기관의 대규모 유료 도입 확정`으로 표현하지 않는다.
 
-## 여전히 미확정
+## 여전히 미확정인 내용
 
 - Pro $200 신규 가입·업그레이드 재개 시점
 - Astra 전체 capacity 정상화 시점
-- Pro $200 제한이 다른 플랜으로 확대될지 여부
-- GPT-6 Pro·Astra 사용한도 추가 상향·하향
-- 추가 크레딧 판매량과 실제 usage/revenue
-- Astra 때문에 발생한 신규 GPU·데이터센터 CAPEX 규모
-- Samsung·SK·Broadcom·TSMC의 Astra 직접 추가 계약
-- ChatGPT for Financial Services의 고객 수·좌석 수·가격·매출/ARR
+- Firmus 계약의 OpenAI 전용 MW
+- Firmus 계약금액
+- 말레이시아 2개 시설의 정확한 ready-for-service 날짜
+- Vera Rubin NVL72 시스템 중 OpenAI에 실제 배정되는 수량
+- Astra 워크로드가 해당 시설에서 차지할 비중
+- Samsung·SK·Broadcom·TSMC 등 추가 공급망 계약
+- ChatGPT for Financial Services 고객 수·좌석 수·usage·revenue
 
 ## 다음 확인 이벤트
 
-1. OpenAI가 Pro $200 신규 가입·업그레이드를 재개하는지
-2. 신규 제한이 다른 요금제로 확대·완화되는지
-3. Astra 전면 rollout 또는 capacity 정상화 발표
-4. GPT-6 Pro·Astra 사용한도·크레딧 가격 변경
-5. 신규 데이터센터·GPU·자체칩 CAPEX 발표
+1. Firmus 말레이시아 AI Factory의 정확한 가동 일정과 OpenAI 배정용량 공개
+2. OpenAI의 추가 데이터센터·GPU·자체칩 capacity 계약
+3. Pro $200 신규 가입·업그레이드 재개 또는 제한 확대
+4. Astra 전면 rollout 또는 capacity 정상화 발표
+5. GPT-6 Pro·Astra 사용한도·크레딧 가격 변경
 6. Samsung·SK·Broadcom·TSMC 등 공급망 추가 계약
-7. 금융서비스 제품의 대형 고객·좌석 수·usage·revenue 공개
+7. 금융서비스 제품의 실제 고객·좌석 수·usage·revenue 공개
 
 ## 출처
 
 ### 1차 자료
 
-- OpenAI Help Center, `About ChatGPT Pro tiers` — Pro $200 신규 가입·업그레이드 일시 중단
-  - https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/
-- OpenAI Help Center, `GPT-5.6 and GPT-6 Pro in ChatGPT`
-  - https://help.openai.com/en/articles/20001354
-- OpenAI Help Center, `ChatGPT Work and Codex`
-  - https://help.openai.com/en/articles/20001275/
-- OpenAI Help Center, `Managing usage with GPT-6 Astra in Work and Codex`
-  - https://help.openai.com/en/articles/20001516
-- OpenAI, `GPT-6 Astra: A new generation of intelligence`
-  - https://openai.com/index/gpt-6-astra/
-- OpenAI, `Introducing ChatGPT for Financial Services` — 2026-09-10
-  - https://openai.com/index/introducing-chatgpt-financial-services/
+- Firmus, `Firmus surpasses 900 MW contracted capacity, adds OpenAI as anchor customer and expands into Malaysia` — 2026-09-08  
+  https://firmus.co/newsroom/firmus-surpasses-900-mw-contracted-capacity-adds-openai-as-anchor-customer-and-expands-into-malaysia
+- OpenAI Help Center, `About ChatGPT Pro tiers`  
+  https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/
+- OpenAI Help Center, `GPT-5.6 and GPT-6 Pro in ChatGPT`  
+  https://help.openai.com/en/articles/20001354
+- OpenAI Help Center, `Managing usage with GPT-6 Astra in Work and Codex`  
+  https://help.openai.com/en/articles/20001516
+- OpenAI, `GPT-6 Astra: A new generation of intelligence`  
+  https://openai.com/index/gpt-6-astra/
+- OpenAI, `Introducing ChatGPT for Financial Services` — 2026-09-10  
+  https://openai.com/index/introducing-chatgpt-financial-services/
 
-### 보조 자료
+### 교차검증
 
-- Reuters, `OpenAI launches ChatGPT for financial services industry` — 2026-09-10
-  - https://www.reuters.com/business/openai-launches-chatgpt-financial-services-industry-2026-09-10/
+- Reuters, `Nvidia-backed Firmus signs deal with OpenAI for Malaysia data centre capacity` — 2026-09-08  
+  https://www.reuters.com/world/asia-pacific/nvidia-backed-firmus-signs-deal-with-openai-malaysia-data-centre-capacity-2026-09-08/
+
+## 업데이트 내역
+
+- **2026-09-12 13:25:** Firmus–OpenAI 말레이시아 2개 AI Factory 전용 컴퓨트 용량 다년 계약을 반영. Firmus 전체 900MW+와 OpenAI 개별 계약용량을 구분하고, 계약금액·OpenAI MW·가동일은 미확정으로 유지.
+- **2026-09-12 12:20:** Pro $200 신규 가입·업그레이드 일시 중단 공식 확인.
