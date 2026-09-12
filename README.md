@@ -20,6 +20,10 @@
 
 ## 최근 핵심 자료
 
+- [AI 가속기 시장 구조와 경쟁 지도](산업-테마/AI-가속기/AI-가속기-시장-구조와-경쟁지도.md) — GPU·TPU·Trainium·Maia·AMD Instinct·Groq LPX·커스텀 XPU 경쟁과 HBM·네트워크·전력 병목 정리
+- [NVIDIA — GPU 회사에서 AI 팩토리 플랫폼 회사로](종목분석/미국주식/NVDA-엔비디아.md) — Vera Rubin·Groq 3 LPX·DSX·NVLink Fusion·Feynman·Physical AI·Sovereign AI까지 중장기 목표 정리
+- [DeepSeek V4.1-Flash — AI 가속기·NVIDIA·시장 영향](산업-테마/AI-가속기/DeepSeek-V4.1-Flash-시장영향.md) — KV 캐시 HBM 1/4·SSD 1/8 구조, GPU·HBM 수요에 대한 약세/강세 시나리오와 실제 주가 영향 구분
+
 - [Anthropic — NVIDIA IPO 앵커투자 협상과 초대형 상장 가능성](종목분석/비상장기업/Anthropic.md) — Reuters의 최대 100억 달러 앵커투자 협상 보도, 최대 1,000억 달러 조달·약 2조 달러 기업가치 논의, 기존 2025년 NVIDIA 투자 약정과의 관계 및 순환투자 리스크 정리
 - [OpenAI — Astra rollout·Pro $200 신규 가입 일시 중단·플랜별 사용한도·금융서비스 enterprise 확장](종목분석/비상장기업/OpenAI.md) — OpenAI Help Center에서 Pro $200(Pro 20X) 신규 가입·업그레이드 일시 중단을 공식 확인, 기존 가입자와 Pro $100은 영향 없음
 - [2026-09-11 미국증시 마감 — CPI·유가·금리·코스피200 야간선물](시황/미국증시/2026-09-11-미국증시-마감.md) — CPI 후 Fed 인상 기대가 높아졌지만 유가·10년물 완화로 미국 증시 반등, 야간선물 +0.97%와 월요일 한국장 연결 정리
