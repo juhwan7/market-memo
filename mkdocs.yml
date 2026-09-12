@@ -75,10 +75,12 @@ markdown_extensions:
 extra_css:
   - assets/stylesheets/extra.css
   - assets/stylesheets/reading.css
+  - assets/stylesheets/radio.css
 
 extra_javascript:
   - assets/javascripts/extra.js
   - assets/javascripts/reading.js
+  - assets/javascripts/radio.js
 
 extra:
   generator: false
