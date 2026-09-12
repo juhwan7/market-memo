@@ -26,6 +26,7 @@
 ## 예시 분류
 
 ~~~text
+산업-테마/AI-가속기/
 산업-테마/AI-사이버보안/
 산업-테마/가스터빈/
 산업-테마/미국정책/
@@ -41,6 +42,20 @@
 ~~~
 
 ## 현재 기준 문서
+
+### AI 가속기
+
+- [AI 가속기 시장 구조와 경쟁 지도](AI-가속기/AI-가속기-시장-구조와-경쟁지도.md)
+  - NVIDIA GPU뿐 아니라 AMD Instinct·Google TPU·AWS Trainium·Microsoft Maia·Groq LPX·커스텀 XPU까지 비교
+  - 학습 중심에서 추론·에이전트 중심으로 이동하면서 cost per token이 핵심 지표가 되는 구조
+  - HBM·패키징·네트워크·광통신·전력·냉각 병목
+  - NVIDIA NVLink Fusion이 자체 ASIC 확산 속에서 갖는 의미
+
+- [DeepSeek V4.1-Flash — AI 가속기·NVIDIA·시장 영향](AI-가속기/DeepSeek-V4.1-Flash-시장영향.md)
+  - 552B MoE 백본과 입력 8B·출력 16B 활성 파라미터
+  - 이전 세대 대비 KV 캐시 HBM 1/4·SSD 1/8이라는 공식 주장과 의미
+  - NVIDIA·HBM·클라우드 자체칩에 대한 강세·약세 시나리오
+  - 효율 개선률과 총 토큰 증가율 중 무엇이 더 빠른지가 핵심이라는 결론
 
 ### AI 사이버보안
 
