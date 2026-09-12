@@ -10,6 +10,8 @@
   let paused = false;
   let sleepTimerId = null;
   let currentUtterance = null;
+  let requestedSeekPercent = 0;
+  let seekDragging = false;
 
   const expandedTerms = new Set();
 
@@ -87,16 +89,16 @@
   function headingTransition(text) {
     const heading = cleanText(text);
     if (!heading) return "";
-    if (/3줄|30초|요약|핵심/.test(heading)) return "먼저 핵심부터 말씀드리겠습니다.";
-    if (/왜 중요|중요한가/.test(heading)) return "먼저, 왜 중요한지부터 보겠습니다.";
-    if (/쉽게|이해/.test(heading)) return "조금 더 쉽게 풀어서 설명하겠습니다.";
-    if (/현재|지금|시장.*보|사람.*보/.test(heading)) return "이제 현재 시장이 어떻게 보고 있는지 살펴보겠습니다.";
-    if (/과거|역사|이전/.test(heading)) return "여기서 과거 흐름도 같이 보겠습니다.";
-    if (/시나리오|경우/.test(heading)) return "이제 가능한 시나리오를 나눠 보겠습니다.";
-    if (/투자|한국.*영향|시장.*영향/.test(heading)) return "이 내용이 시장에 어떤 의미인지 연결해 보겠습니다.";
-    if (/앞으로|체크|확인/.test(heading)) return "앞으로 확인할 부분도 짚어보겠습니다.";
-    if (/결론|정리|기억/.test(heading)) return "마지막으로 핵심을 정리하겠습니다.";
-    return `${heading}에 대해 이어서 보겠습니다.`;
+    if (/3줄|30초|요약|핵심/.test(heading)) return "먼저 오늘 핵심부터 또렷하게 짚어볼게요.";
+    if (/왜 중요|중요한가/.test(heading)) return "자, 여기서 왜 중요한지 한 번 볼게요. 이 부분이 흐름을 이해하는 데 꽤 중요합니다.";
+    if (/쉽게|이해/.test(heading)) return "숫자가 조금 많아 보여도 괜찮습니다. 핵심만 편하게 풀어서 설명해볼게요.";
+    if (/현재|지금|시장.*보|사람.*보/.test(heading)) return "이제 시장이 실제로 어떻게 보고 있는지 볼게요. 뉴스의 숫자보다 이 반응이 더 중요할 때가 많습니다.";
+    if (/과거|역사|이전/.test(heading)) return "여기서 잠깐 과거 흐름을 같이 보면 지금 상황이 훨씬 잘 보입니다.";
+    if (/시나리오|경우/.test(heading)) return "좋습니다. 이제 경우의 수를 나눠볼게요. 어렵게 생각할 필요는 없습니다.";
+    if (/투자|한국.*영향|시장.*영향/.test(heading)) return "그럼 이게 실제 시장에는 어떻게 연결될까요. 바로 이어서 볼게요.";
+    if (/앞으로|체크|확인/.test(heading)) return "이제 앞으로 뭘 확인하면 되는지 딱 짚어볼게요.";
+    if (/결론|정리|기억/.test(heading)) return "마지막으로 정리하겠습니다. 이것만 기억해두면 충분합니다.";
+    return `${heading}, 이 부분도 뉴스처럼 핵심은 정확하게, 말은 편하게 이어서 볼게요.`;
   }
 
   function isLowValueSection(heading) {
@@ -125,7 +127,7 @@
     if (!content || !title) return [];
 
     const segments = [
-      `마켓 메모 라디오입니다. 오늘은 ${title} 내용을 차근차근 설명드리겠습니다.`,
+      `안녕하세요. 마켓 메모 라디오입니다. 오늘은 ${title} 이야기입니다. 뉴스 아나운서처럼 핵심은 정확하게 짚고, 옆에서 친구가 설명해주듯 편하게 풀어볼게요.`,
     ];
 
     let currentHeading = "";
@@ -284,6 +286,40 @@
     if (status) status.textContent = message;
   }
 
+  function clampPercent(value) {
+    return Math.max(0, Math.min(100, Number(value) || 0));
+  }
+
+  function percentForChunk(index) {
+    if (!chunks.length) return requestedSeekPercent;
+    if (chunks.length === 1) return 100;
+    return clampPercent((index / (chunks.length - 1)) * 100);
+  }
+
+  function updateSeekUi(panel, percent = requestedSeekPercent) {
+    const value = Math.round(clampPercent(percent));
+    const seek = panel.querySelector("[data-mm-radio-seek]");
+    const label = panel.querySelector("[data-mm-radio-seek-label]");
+    if (seek && !seekDragging) seek.value = String(value);
+
+    if (label) {
+      let extra = "";
+      if (chunks.length) {
+        const totalMinutes = Math.max(1, chunks.join(" ").length / 360);
+        const minute = Math.round(totalMinutes * (value / 100));
+        extra = minute > 0 ? ` · 약 ${minute}분 지점` : " · 처음부터";
+      }
+      label.textContent = `${playing ? "재생 위치" : "시작 위치"} ${value}%${extra}`;
+    }
+
+    panel.querySelectorAll("[data-mm-radio-jump]").forEach((button) => {
+      button.classList.toggle(
+        "is-active",
+        Number(button.dataset.mmRadioJump) === value
+      );
+    });
+  }
+
   function updateProgress(panel) {
     const progress = panel.querySelector("[data-mm-radio-progress]");
     const label = panel.querySelector("[data-mm-radio-progress-label]");
@@ -292,6 +328,42 @@
     if (label) label.textContent = chunks.length
       ? `${Math.min(chunkIndex + 1, chunks.length)} / ${chunks.length}`
       : "준비";
+
+    if (playing && chunks.length) {
+      requestedSeekPercent = percentForChunk(chunkIndex);
+      updateSeekUi(panel, requestedSeekPercent);
+    } else {
+      updateSeekUi(panel, requestedSeekPercent);
+    }
+  }
+
+  function seekToPercent(panel, percent) {
+    requestedSeekPercent = clampPercent(percent);
+    updateSeekUi(panel, requestedSeekPercent);
+
+    if (!chunks.length) {
+      setStatus(panel, `${Math.round(requestedSeekPercent)}% 지점부터 들을 준비를 했습니다.`);
+      return;
+    }
+
+    const nextIndex = Math.min(
+      chunks.length - 1,
+      Math.max(0, Math.round((requestedSeekPercent / 100) * (chunks.length - 1)))
+    );
+
+    chunkIndex = nextIndex;
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    currentUtterance = null;
+    updateProgress(panel);
+
+    if (playing && !paused) {
+      setStatus(panel, `${Math.round(requestedSeekPercent)}% 지점으로 이동했습니다. 여기서부터 이어서 들려드릴게요.`);
+      window.setTimeout(() => speakNext(panel), 120);
+    } else if (playing && paused) {
+      setStatus(panel, `${Math.round(requestedSeekPercent)}% 지점으로 이동했습니다. 계속 듣기를 누르면 여기서 시작합니다.`);
+    } else {
+      setStatus(panel, `${Math.round(requestedSeekPercent)}% 지점부터 들을 준비를 했습니다.`);
+    }
   }
 
   function setPlayingUi(panel) {
@@ -324,6 +396,7 @@
     chunkIndex = 0;
     updateProgress(panel);
     setPlayingUi(panel);
+    updateSeekUi(panel, requestedSeekPercent);
     setStatus(panel, message);
   }
 
@@ -356,15 +429,16 @@
 
     if (voice) utterance.voice = voice;
     utterance.lang = voice?.lang || "ko-KR";
-    utterance.rate = Math.max(0.72, Math.min(1.2, rate));
-    utterance.pitch = 1;
+    const friendlyLine = /자,|좋습니다|잠깐|볼게요|기억해|괜찮습니다|바로 이어서/.test(text);
+    utterance.rate = Math.max(0.72, Math.min(1.2, rate + (friendlyLine ? 0.01 : 0)));
+    utterance.pitch = friendlyLine ? 1.03 : 0.99;
     utterance.volume = 1;
 
     utterance.onend = () => {
       if (!playing || paused) return;
       chunkIndex += 1;
       updateProgress(panel);
-      window.setTimeout(() => speakNext(panel), 90);
+      window.setTimeout(() => speakNext(panel), 135);
     };
 
     utterance.onerror = (event) => {
@@ -401,7 +475,6 @@
     }
 
     window.speechSynthesis.cancel();
-    chunkIndex = 0;
     const mode = panel.querySelector("[data-mm-radio-mode]")?.value || "core";
     chunks = buildChunks(mode);
 
@@ -409,6 +482,11 @@
       setStatus(panel, "읽을 본문을 찾지 못했습니다.");
       return;
     }
+
+    chunkIndex = Math.min(
+      chunks.length - 1,
+      Math.max(0, Math.round((requestedSeekPercent / 100) * (chunks.length - 1)))
+    );
 
     playing = true;
     paused = false;
@@ -418,7 +496,8 @@
     updateProgress(panel);
 
     const estimatedMinutes = Math.max(1, Math.round(chunks.join(" ").length / 360));
-    setStatus(panel, `${mode === "core" ? "핵심 설명" : "전체 설명"} · 약 ${estimatedMinutes}분 · 기기에서 가장 자연스러운 한국어 음성을 우선 사용합니다.`);
+    const startNote = requestedSeekPercent > 0 ? ` · ${Math.round(requestedSeekPercent)}% 지점부터` : "";
+    setStatus(panel, `${mode === "core" ? "핵심 설명" : "전체 설명"} · 약 ${estimatedMinutes}분${startNote} · 뉴스처럼 또렷하고 친구처럼 편한 말투로 들려드립니다.`);
     window.setTimeout(() => speakNext(panel), 120);
   }
 
@@ -457,6 +536,8 @@
     paused = false;
     chunks = [];
     chunkIndex = 0;
+    requestedSeekPercent = 0;
+    seekDragging = false;
 
     const settings = loadSettings();
     const panel = document.createElement("section");
@@ -467,7 +548,7 @@
         <div>
           <span class="mm-radio-eyebrow">MARKET MEMO RADIO</span>
           <strong>눈 감고 듣기</strong>
-          <p>표·URL·코드는 빼고, 문서 흐름을 사람이 설명하듯 연결해서 읽습니다.</p>
+          <p>핵심은 뉴스처럼 또렷하게, 말투는 친한 친구처럼 부드럽게 설명합니다.</p>
         </div>
         <button type="button" class="mm-radio-primary" data-mm-radio-play>▶ 라디오로 듣기</button>
       </div>
@@ -507,10 +588,23 @@
         </label>
       </div>
 
+      <div class="mm-radio-seek">
+        <div class="mm-radio-seek__top">
+          <strong data-mm-radio-seek-label>시작 위치 0%</strong>
+          <div class="mm-radio-seek__quick" aria-label="빠른 시작 위치">
+            <button type="button" data-mm-radio-jump="0" class="is-active">처음</button>
+            <button type="button" data-mm-radio-jump="25">25%</button>
+            <button type="button" data-mm-radio-jump="50">50%</button>
+            <button type="button" data-mm-radio-jump="75">75%</button>
+          </div>
+        </div>
+        <input type="range" min="0" max="100" step="1" value="0" data-mm-radio-seek aria-label="재생 시작 위치" />
+      </div>
+
       <div class="mm-radio-actions">
         <button type="button" data-mm-radio-pause disabled>Ⅱ 잠깐 멈춤</button>
         <button type="button" data-mm-radio-stop disabled>■ 정지</button>
-        <span class="mm-radio-quality">고급 한국어 음성 우선</span>
+        <span class="mm-radio-quality">뉴스 앵커 + 편한 친구 톤</span>
       </div>
 
       <div class="mm-radio-progress-track" aria-hidden="true">
@@ -520,7 +614,7 @@
         <span data-mm-radio-status>재생을 누르면 설명형 스크립트를 즉석에서 구성합니다.</span>
         <b data-mm-radio-progress-label>준비</b>
       </div>
-      <p class="mm-radio-note">현재 버전은 기기에 설치된 한국어 음성을 사용합니다. 음질은 휴대폰·브라우저에 따라 달라질 수 있으며, 추후 서버형 AI 음성을 연결할 수 있는 구조로 분리했습니다.</p>
+      <p class="mm-radio-note">문장 구성은 뉴스처럼 핵심을 먼저 짚고, 중간 연결은 친구가 옆에서 설명하듯 부드럽게 바꿉니다. 실제 목소리의 질감은 휴대폰·브라우저의 한국어 음성 엔진에 따라 달라질 수 있습니다.</p>
     `;
 
     const readingControls = content.querySelector("[data-mm-reading-controls]");
@@ -541,11 +635,35 @@
     panel.querySelector("[data-mm-radio-pause]")?.addEventListener("click", () => togglePause(panel));
     panel.querySelector("[data-mm-radio-stop]")?.addEventListener("click", () => stopPlayback(panel));
 
+    const seek = panel.querySelector("[data-mm-radio-seek]");
+    seek?.addEventListener("pointerdown", () => {
+      seekDragging = true;
+    });
+    seek?.addEventListener("input", () => {
+      requestedSeekPercent = clampPercent(seek.value);
+      const label = panel.querySelector("[data-mm-radio-seek-label]");
+      if (label) label.textContent = `${playing ? "재생 위치" : "시작 위치"} ${Math.round(requestedSeekPercent)}%`;
+    });
+    seek?.addEventListener("change", () => {
+      seekDragging = false;
+      seekToPercent(panel, seek.value);
+    });
+    seek?.addEventListener("pointerup", () => {
+      seekDragging = false;
+    });
+
+    panel.querySelectorAll("[data-mm-radio-jump]").forEach((button) => {
+      button.addEventListener("click", () => {
+        seekDragging = false;
+        seekToPercent(panel, button.dataset.mmRadioJump || 0);
+      });
+    });
+
     panel.querySelectorAll("select").forEach((select) => {
       select.addEventListener("change", () => {
         saveSettings(panel);
         if (select.matches("[data-mm-radio-mode]") && playing) {
-          stopPlayback(panel, "내용 범위를 바꿨습니다. 다시 재생을 눌러주세요.");
+          stopPlayback(panel, "내용 범위를 바꿨습니다. 시작 위치를 확인한 뒤 다시 재생해주세요.");
         }
       });
     });
