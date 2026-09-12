@@ -1,17 +1,18 @@
 {
   "id": "openai-astra-demand",
   "topic": "OpenAI GPT-6 Astra 수요·컴퓨트 상태",
-  "status": "rollout_usage_limits_pro200_signup_pause_financial_services_enterprise_expansion",
-  "status_label": "Astra rollout 유지 + GPT-6 Pro 사용한도 관리 + Pro $200 신규 가입·업그레이드 일시 중단 + 금융서비스 enterprise 확장",
-  "status_changed_at": "2026-09-12T12:20:00+09:00",
-  "last_verified_at": "2026-09-12T12:20:00+09:00",
+  "status": "rollout_usage_limits_pro200_signup_pause_financial_services_enterprise_expansion_malaysia_compute_contract",
+  "status_label": "Astra rollout 유지 + GPT-6 Pro 사용한도 관리 + Pro $200 신규 가입·업그레이드 일시 중단 + 금융서비스 enterprise 확장 + Firmus 말레이시아 전용 컴퓨트 다년 계약",
+  "status_changed_at": "2026-09-12T13:25:00+09:00",
+  "last_verified_at": "2026-09-12T13:25:00+09:00",
   "document": "종목분석/비상장기업/OpenAI.md",
-  "latest_history_file": "자동감시/이력/openai-astra/2026-09-12-1220-이전-버전.md",
+  "latest_history_file": "자동감시/이력/openai-astra/2026-09-12-1325-이전-버전.md",
   "next_checks": [
+    "Firmus 말레이시아 AI Factory의 정확한 가동 일정과 OpenAI 배정용량",
     "Pro $200 신규 가입·업그레이드 재개 또는 제한 확대",
     "GPT-6 Pro·Astra 사용한도 및 크레딧 가격 추가 변경",
     "Astra 전면 rollout 또는 capacity 정상화",
-    "OpenAI 신규 compute·data center·custom chip CAPEX",
+    "OpenAI 추가 compute·data center·custom chip CAPEX",
     "Samsung·SK·Broadcom·TSMC 등 공급망 추가 계약",
     "ChatGPT for Financial Services 고객 수·좌석 수·usage·revenue 공개"
   ]
