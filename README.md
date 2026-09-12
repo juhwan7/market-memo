@@ -20,6 +20,7 @@
 
 ## 최근 핵심 자료
 
+- [Anthropic 2030 미국경제 시나리오 — AI가 성장·일자리·임금·자본을 어떻게 바꿀까](산업-테마/AI-경제/Anthropic-2030-미국경제-시나리오.md) — 완만·상당·극단 3개 시나리오, GDP·실업·지식노동 임금·노동/자본소득 배분과 투자 시사점 정리
 - [HD현대중공업 — 1조722억원 발전엔진·SMR 투자](종목분석/한국주식/329180-HD현대중공업.md) — 미국 데이터센터 발전엔진 수주를 바탕으로 한 3GW 증설과 TerraPower SMR 주기기 전용공장 투자, 실적 가시성과 장기 옵션을 구분해 정리
 - [AI 가속기 시장 구조와 경쟁 지도](산업-테마/AI-가속기/AI-가속기-시장-구조와-경쟁지도.md) — GPU·TPU·Trainium·Maia·AMD Instinct·Groq LPX·커스텀 XPU 경쟁과 HBM·네트워크·전력 병목 정리
 - [NVIDIA — GPU 회사에서 AI 팩토리 플랫폼 회사로](종목분석/미국주식/NVDA-엔비디아.md) — Vera Rubin·Groq 3 LPX·DSX·NVLink Fusion·Feynman·Physical AI·Sovereign AI까지 중장기 목표 정리
