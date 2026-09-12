@@ -15,5 +15,5 @@ IPO는 `검토 → 주관사 선정 → 예심 청구 → 예심 승인 → 증�
 | 기업 | 현재 단계/상태 | 주요 주제 | 최근 업데이트 | 문서 |
 |---|---|---|---|---|
 | Anthropic | 비상장 · 초대형 IPO 준비·NVIDIA 앵커투자 협상 보도 / 공식 확정 전 | Claude·IPO·NVIDIA 최대 100억 달러 앵커투자·AI 컴퓨팅·밸류에이션 | 2026-09-12 | [Anthropic](Anthropic.md) |
-| OpenAI | 비상장 · Astra rollout + GPT-6 Pro 사용한도 관리 + Pro $200 신규 가입·업그레이드 일시 중단 + 금융서비스 enterprise 확장 | GPT-6 Astra·GPT-6 Pro·Pro $200 capacity control·플랜별 Chat 한도·Work/Codex usage·ChatGPT for Financial Services·AI 인프라 | 2026-09-12 | [OpenAI](OpenAI.md) |
+| OpenAI | 비상장 · Astra rollout + GPT-6 Pro 사용한도 관리 + Pro $200 신규 가입·업그레이드 일시 중단 + 금융서비스 enterprise 확장 + Firmus 말레이시아 전용 컴퓨트 다년 계약 | GPT-6 Astra·GPT-6 Pro·Pro $200 capacity control·Work/Codex usage·ChatGPT for Financial Services·말레이시아 AI Factory·NVIDIA Vera Rubin·AI 인프라 | 2026-09-12 | [OpenAI](OpenAI.md) |
 | 무신사 | 상장예비심사 청구 | 코스피 IPO | 2026-09-10 | [무신사 IPO](무신사-IPO.md) |
