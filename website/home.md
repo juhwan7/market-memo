@@ -3,13 +3,11 @@ hide:
   - toc
 ---
 
-<div class="mm-hero" markdown>
+<div class="mm-hero mm-hero-compact" markdown>
 
-<span class="mm-kicker">MARKET MEMO</span>
+# Market Memo
 
-# 시장을 빠르게 읽고, 근거까지 확인합니다.
-
-한국·미국 증시, 산업·테마, 기업 이슈를 **핵심 → 원인 → 근거 → 반론 → 다음 확인사항** 순서로 정리하는 개인 시장 노트입니다.
+<span class="mm-hero-summary">증시·산업·종목을 핵심 → 원인 → 근거 → 다음 확인사항 순서로 정리합니다.</span>
 
 <div class="mm-hero-links" markdown>
 
