@@ -28,7 +28,7 @@
 - [NVIDIA — GPU 회사에서 AI 팩토리 플랫폼 회사로](종목분석/미국주식/NVDA-엔비디아.md) — Vera Rubin·Groq 3 LPX·DSX·NVLink Fusion·Feynman·Physical AI·Sovereign AI까지 중장기 목표 정리
 - [DeepSeek V4.1-Flash — AI 가속기·NVIDIA·시장 영향](산업-테마/AI-가속기/DeepSeek-V4.1-Flash-시장영향.md) — KV 캐시 HBM 1/4·SSD 1/8 구조, GPU·HBM 수요에 대한 약세/강세 시나리오와 실제 주가 영향 구분
 
-- [Anthropic — NVIDIA IPO 앵커투자 협상과 초대형 상장 가능성](종목분석/비상장기업/Anthropic.md) — Reuters의 최대 100억 달러 앵커투자 협상 보도, 최대 1,000억 달러 조달·약 2조 달러 기업가치 논의, 기존 2025년 NVIDIA 투자 약정과의 관계 및 순환투자 리스크 정리
+- [Anthropic IPO — 기대감과 우려, 2조 달러 가치가 성립하려면 무엇이 필요한가](종목분석/비상장기업/Anthropic.md) — 비공개 S-1 제출, 최대 1,000억 달러 조달·약 2조 달러 가치·NVIDIA 앵커투자 협상, 2개 분기 연속 조정 영업이익 흑자 보도와 밸류에이션·현금흐름·규제·지배구조 리스크를 함께 정리
 - [OpenAI — Astra rollout·Pro $200 신규 가입 일시 중단·말레이시아 컴퓨트 다년 계약](종목분석/비상장기업/OpenAI.md) — Pro $200 신규 가입 제한이 유지되는 가운데 Firmus와 말레이시아 AI Factory 2곳의 전용 AI 컴퓨트 용량을 다년 계약. 정확한 OpenAI MW·계약금액·가동일은 비공개
 - [2026-09-11 미국증시 마감 — CPI·유가·금리·코스피200 야간선물](시황/미국증시/2026-09-11-미국증시-마감.md) — CPI 후 Fed 인상 기대가 높아졌지만 유가·10년물 완화로 미국 증시 반등, 야간선물 +0.97%와 월요일 한국장 연결 정리
 - [젠슨 황 “AI의 다음 대형 시장은 사이버보안”](산업-테마/AI-사이버보안/젠슨황-AI-사이버보안-차세대-시장-발언.md) — 발언 원문, 공포 마케팅 논란, CrowdStrike·Cisco·Palantir 실제 협업과 투자 의미
