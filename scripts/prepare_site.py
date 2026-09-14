@@ -136,6 +136,45 @@ def last_commit_for(path: Path) -> tuple[str, str]:
     return date.strip(), message.strip()
 
 
+def curated_recent_documents(limit: int = 12) -> list[Path]:
+    """Use 최근-업데이트.md as the homepage source of truth.
+
+    The update log is manually curated and already ordered newest-first, so the
+    homepage should follow it instead of independently guessing recency from
+    Git commit order.
+    """
+    update_log = ROOT / "최근-업데이트.md"
+    if not update_log.exists():
+        return recent_documents(limit=limit)
+
+    text = update_log.read_text(encoding="utf-8")
+    link_re = re.compile(r"\[[^\]]+\]\(([^)]+\.md)(?:#[^)]+)?\)")
+    seen: set[str] = set()
+    result: list[Path] = []
+
+    for href in link_re.findall(text):
+        candidate = href.strip()
+        if candidate.startswith(("http://", "https://")):
+            continue
+
+        path = (ROOT / candidate).resolve()
+        try:
+            relative = path.relative_to(ROOT)
+        except ValueError:
+            continue
+
+        key = relative.as_posix()
+        if key in seen or not path.exists() or not is_analysis_document(path):
+            continue
+
+        seen.add(key)
+        result.append(path)
+        if len(result) >= limit:
+            break
+
+    return result or recent_documents(limit=limit)
+
+
 def recent_documents(limit: int = 8, prefix: str | None = None) -> list[Path]:
     raw = run_git(
         "log",
@@ -274,7 +313,7 @@ def build_homepage() -> None:
         "{{MARKET_COUNT}}": str(counts["시황"]),
         "{{THEME_COUNT}}": str(counts["산업-테마"]),
         "{{STOCK_COUNT}}": str(counts["종목분석"]),
-        "{{RECENT_DOCS}}": card_list(recent_documents(limit=8), "최근 분석 문서가 없습니다."),
+        "{{RECENT_DOCS}}": card_list(curated_recent_documents(limit=12), "최근 분석 문서가 없습니다."),
         "{{SCHEDULE_DOCS}}": card_list(
             recent_documents(limit=4, prefix="시황/주요일정"),
             "등록된 주요 일정 문서가 없습니다.",
