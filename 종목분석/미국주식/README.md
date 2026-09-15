@@ -16,3 +16,5 @@ NYSE·Nasdaq 등 미국 상장 개별 기업 분석을 저장합니다.
 
 - [TSLA — Tesla](TSLA-테슬라.md)
   - Cybercab·Robotaxi·자율주행 중심
+  - 2026-09-15 NHTSA 자기인증 검증 강화: Tesla에 9월 30일까지 인증 근거 답변 요구
+  - 위반·리콜·운행중단은 아직 확정되지 않음
