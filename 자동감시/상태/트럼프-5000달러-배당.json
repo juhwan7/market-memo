@@ -1,20 +1,21 @@
 {
   "id": "trump-dividend-policy",
   "topic": "트럼프 5,000달러 Trump Dividend",
-  "status": "campaign_promise_funding_options_claimed",
-  "status_label": "선거 공약 유지 + 행정부 인사 재원 후보 주장·공식 재원/법안 미확정",
-  "status_changed_at": "2026-09-13T04:17:00+09:00",
-  "last_verified_at": "2026-09-13T04:17:00+09:00",
+  "status": "campaign_promise_treasury_structure_review",
+  "status_label": "선거 공약 유지 + Treasury 지급 구조 검토 공식 확인·구체 재원/법적 권한/법안 미확정",
+  "status_changed_at": "2026-09-17T10:00:00+09:00",
+  "last_verified_at": "2026-09-17T10:00:00+09:00",
   "document": "산업-테마/미국정책/트럼프-5000달러-배당-공약.md",
-  "latest_history_file": "자동감시/이력/트럼프-5000달러-배당/2026-09-13-0417-이전-버전.md",
+  "latest_history_file": "자동감시/이력/트럼프-5000달러-배당/2026-09-17-1000-이전-버전.md",
   "next_watch": [
-    "백악관·재무부의 공식 재원표·비용추계",
+    "Treasury·백악관 공식 재원표·비용추계·법률검토 결과",
+    "Bessent가 언급한 부채·적자를 늘리지 않는 지급 구조 공개",
     "법안 발의 및 법안번호",
     "Platinum Card 실제 정부 세입",
     "정부 Intel 지분 현금화 계획",
     "지급 대상·소득 제한",
     "지급 방식·시점",
     "하원 또는 상원 의결",
-    "대통령 서명"
+    "대통령 서명 또는 기타 적법한 집행근거"
   ]
 }
