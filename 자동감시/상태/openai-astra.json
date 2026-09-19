@@ -1,22 +1,21 @@
 {
   "id": "openai-astra-demand",
   "topic": "OpenAI GPT-6 Astra 수요·컴퓨트 상태",
-  "status": "rollout_usage_limits_pro200_signup_pause_financial_services_firmus_compute_perplexity_production_astra_law_trusted_access",
-  "status_label": "Astra rollout 유지 + Pro $200 신규가입 중단 + 금융서비스·Perplexity·Firmus 상태 유지 + Astra for Law 출시·선정 로펌 Trusted Access·Harvey/Legora API 경로",
-  "status_changed_at": "2026-09-18T06:48:00+09:00",
-  "last_verified_at": "2026-09-18T06:48:00+09:00",
+  "status": "rollout_usage_limits_pro200_signup_pause_verticals_compute_enterprise_spend_signal",
+  "status_label": "기존 rollout·Pro $200 제한·vertical·컴퓨트 상태 유지 + Ramp Astra enterprise 지출 약 13%·OpenRouter OpenAI 주간 지출 Anthropic 추월",
+  "status_changed_at": "2026-09-19T13:19:00+09:00",
+  "last_verified_at": "2026-09-19T13:19:00+09:00",
   "document": "종목분석/비상장기업/OpenAI.md",
-  "latest_history_file": "자동감시/이력/openai-astra/2026-09-18-0648-이전-버전.md",
+  "latest_history_file": "자동감시/이력/openai-astra/2026-09-19-1319-이전-버전.md",
   "next_checks": [
-    "Astra for Law API 실제 출시와 접근 범위 확대",
-    "선정 로펌 유료 전환·좌석·usage·계약금액·revenue 공개",
-    "Harvey·Legora의 Astra for Law 상용 배포·API 사용량",
-    "Perplexity·금융서비스 고객의 usage·계약금액·revenue 공개",
-    "Firmus 말레이시아 AI Factory 정확한 가동 일정과 OpenAI 배정용량",
+    "Ramp 다음 AI Index에서 Astra 지출 비중 지속·확대 여부",
+    "OpenRouter OpenAI/Anthropic 주간 지출 추세 지속 여부",
+    "OpenAI Astra usage·revenue·ARR 또는 대형 enterprise 계약 수치 공개",
+    "Astra for Law API 실제 출시와 유료 고객·좌석·usage 공개",
     "Pro $200 신규 가입·업그레이드 재개 또는 제한 확대",
-    "GPT-6 Pro·Astra 사용한도 및 크레딧 가격 추가 변경",
     "Astra 전면 rollout 또는 capacity 정상화",
-    "OpenAI 추가 compute·data center·custom chip CAPEX",
+    "Firmus 말레이시아 AI Factory 가동 일정과 OpenAI 배정용량",
+    "추가 compute·data center·custom chip CAPEX",
     "Samsung·SK·Broadcom·TSMC 등 공급망 추가 계약"
   ]
 }
