@@ -20,7 +20,7 @@
 
 ## 최근 핵심 자료
 
-- [OpenAI — Astra enterprise 지출 신호·Pro $200 신규가입 중단·금융/법률 vertical·컴퓨트](종목분석/비상장기업/OpenAI.md) — Reuters가 Ramp 최신 데이터를 인용해 Astra가 추적 enterprise AI 지출의 약 13%를 차지했다고 보도했고 OpenRouter 주간 지출에서 OpenAI가 Anthropic을 2년 반여 만에 추월. 표본 기반 외부 데이터이므로 OpenAI 공식 매출·전체 시장점유율로는 해석하지 않음
+- [OpenAI — Astra enterprise 확장·지출 신호·Pro $200 신규가입 중단·컴퓨트](종목분석/비상장기업/OpenAI.md) — 9/23 OpenAI가 Airbnb와 새 agreement를 공식 발표하고 engineering·product development teams의 GPT-6 Astra 포함 frontier model 접근을 확대. 계약금액·Astra 전용 usage·매출 기여도는 미공개이며 capacity 정상화로는 해석하지 않음
 - [트럼프 5,000달러 Trump Dividend 공약](산업-테마/미국정책/트럼프-5000달러-배당-공약.md) — 9/15 Bessent 재무장관이 공식 의회 청문회에서 Treasury가 실제 지급 구조를 상당 기간 검토해 왔다고 확인. 다만 구체 재원·비용추계·법적 권한·법안은 아직 미확정
 - [미국 800MHz D2D 주파수 경쟁](산업-테마/위성통신/미국-800MHz-D2D-주파수-경쟁.md) — FCC 공개경매가 아니라 Grain의 민간 경쟁절차. 11/5 결과 보고 기한, AST의 실제 800MHz 시험, SpaceX·60억달러 보도의 미확정성, SCS 규제 리스크와 인텔리안테크 연결까지 정리
 - [Tesla Cybercab / Robotaxi](종목분석/미국주식/TSLA-테슬라.md) — NHTSA가 Cybercab 자기인증 근거에 관한 구체 답변을 Tesla에 요구하고 2026-09-30을 답변 기한으로 설정. 규제 검증은 강화됐지만 위반·리콜·운행중단은 아직 확정되지 않음
